@@ -26,5 +26,6 @@ namespace ArchiveTester.Core
       _extractor = new SevenZipExtractor(ArchiveFile.FullName, password);
       return _extractor.Check();
     }
+
   }
 }
