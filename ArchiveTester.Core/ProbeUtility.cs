@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ArchiveTester.Core
+﻿namespace ArchiveTester.Core
 {
   public class ProbeUtility : IProbeUtility
   {
@@ -13,8 +11,7 @@ namespace ArchiveTester.Core
 
     public string BruteForceArchive()
     {
-      if (!ArchiveHandler.)
-        throw new NotImplementedException();
+      return null;
     }
   }
 }
