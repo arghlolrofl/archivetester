@@ -83,6 +83,7 @@
     <Compile Include="ArchiveHandler.cs" />
     <Compile Include="Ascii.cs" />
     <Compile Include="CharArrayExtensions.cs" />
+    <Compile Include="Contracts\ITestString.cs" />
     <Compile Include="IArchiveHandler.cs" />
     <Compile Include="IProbeUtility.cs" />
     <Compile Include="ITestString.cs" />
@@ -94,6 +95,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

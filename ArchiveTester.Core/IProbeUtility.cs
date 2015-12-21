@@ -1,11 +1,13 @@
 ﻿using System;
 
-namespace ArchiveTester.Core {
-    public interface IProbeUtility : IDisposable {
-        IArchiveHandler ArchiveHandler { get; set; }
+namespace ArchiveTester.Core
+{
+  public interface IProbeUtility : IDisposable
+  {
+    event EventHandler<string> TestingPassword;
 
-        string BruteForceArchive();
+    IArchiveHandler ArchiveHandler { get; set; }
 
-        event EventHandler<string> TestingPassword;
-    }
+    string BruteForceArchive();
+  }
 }
