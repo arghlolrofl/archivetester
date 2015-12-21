@@ -5,6 +5,6 @@ namespace ArchiveTester.Core.Test
   [TestClass]
   public class ArchiveHandlerFixture
   {
-
+    
   }
 }
