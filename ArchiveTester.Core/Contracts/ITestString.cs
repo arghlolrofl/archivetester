@@ -2,9 +2,7 @@
 {
   public interface ITestString
   {
-    string Value { get; set; }
-
-    void Initialize();
+    string Value { get; }
 
     string GetNext();
   }

@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Linq;
+using ArchiveTester.Core.Contracts;
 
 namespace ArchiveTester.Core
 {
   public class TestString : ITestString
   {
-    public static ConcurrentQueue<string> Queue { get; set; }
-    static TestString()
-    {
-      Queue = new ConcurrentQueue<string>();
-    }
-
-
     char[] _current;
     public string Value
     {
@@ -78,6 +71,11 @@ namespace ArchiveTester.Core
       }
 
       return true;
+    }
+
+    public string GetNext()
+    {
+      return Increment() ? Value : null;
     }
   }
 }
