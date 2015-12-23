@@ -13,29 +13,38 @@ namespace ArchiveTester {
             p.Run();
         }
 
-        public IProbeUtility Probe { get; set; }
+        static IProbeUtility Probe { get; set; }
 
         public void Run() {
             Console.CancelKeyPress += Console_CancelKeyPress;
 
             string rarFilePath = @"e:\- incoming -\temp.och\WET.part01.rar";
+            //string rarFilePath = @"e:\- incoming -\temp.och\test.part1.rar";
             FileInfo rarFile = new FileInfo(rarFilePath);
 
-            IArchiveHandler archive = new ArchiveHandler(rarFile);
+            IArchiveHandler archive = new ArchiveHandlerSharpCompress(rarFile);
 
             Probe = new ProbeUtility(archive);
             Probe.TestingPassword += Probe_TestingPassword;
             Console.Clear();
-            Console.SetCursorPosition(1, 1);
-            Console.WriteLine("###########################################################################");
+            Console.SetCursorPosition(0, 1);
+            Console.WriteLine("############################################################################");
             Console.WriteLine("#        Starting test ...                                                 #");
             Console.WriteLine("############################################################################");
             Console.WriteLine();
-            
 
-            string pass = Probe.BruteForceArchive();
+            string pass = String.Empty;
+            try {
+                pass = Probe.BruteForceArchive();
+            } catch (Exception ex) {
+                Console.SetCursorPosition(1, 32);
+                Console.WriteLine(Environment.NewLine + ex.GetType().Name.ToUpper() + ": " + ex.Message + Environment.NewLine);
+            } finally {
+                Console.WriteLine("Possible password: '{0}'", pass);
+            }
 
-            Console.WriteLine("Possible password: '{0}'", pass);
+            Console.ReadKey();
+            Probe.Dispose();
         }
 
         private void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e) {

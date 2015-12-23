@@ -66,8 +66,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SevenZipSharp, Version=0.64.3890.29348, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
-      <HintPath>..\packages\SevenZipSharp.0.64\lib\SevenZipSharp.dll</HintPath>
+    <Reference Include="SharpCompress, Version=0.11.2.0, Culture=neutral, PublicKeyToken=beaf6f427e128133, processorArchitecture=MSIL">
+      <HintPath>..\packages\sharpcompress.0.11.2\lib\net40\SharpCompress.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -80,7 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArchiveHandler.cs" />
+    <Compile Include="ArchiveHandlerSevenZipExternal.cs" />
+    <Compile Include="ArchiveHandlerSharpCompress.cs" />
     <Compile Include="Ascii.cs" />
     <Compile Include="CharArrayExtensions.cs" />
     <Compile Include="IArchiveHandler.cs" />

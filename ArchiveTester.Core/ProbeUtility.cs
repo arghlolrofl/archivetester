@@ -29,15 +29,15 @@ namespace ArchiveTester.Core {
                 lastPass = testString.Value;
                 TestingPassword(this, lastPass);
 
-                if (ArchiveHandler.Extract(@"DOSGAMES\WET DOS-Box\Reset Options.bat", lastPass))
+                if (ArchiveHandler.TestPassword(lastPass))
                     break;
-                
-            } while (testString.Increment()) ;
+            } while (testString.Increment());
 
             return testString.Value;
         }
 
         public void Dispose() {
+            ArchiveHandler.Dispose();
             using (StreamWriter sw = new StreamWriter(f.FullName)) {
                 sw.Write(lastPass);
             }
